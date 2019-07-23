@@ -24,9 +24,6 @@
     <ClCompile Include="cuenta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cliente.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="historial.h">

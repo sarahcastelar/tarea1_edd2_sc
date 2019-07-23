@@ -123,7 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cliente.cpp" />
     <ClCompile Include="cuenta.cpp" />
     <ClCompile Include="historial.cpp" />
     <ClCompile Include="main.cpp" />

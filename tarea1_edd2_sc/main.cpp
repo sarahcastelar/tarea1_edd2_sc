@@ -24,7 +24,8 @@ int main() {
 			<< "1. Agregar cliente" << endl
 			<< "2. Depositos/Retiros" << endl
 			<< "3. Ver historial de transacciones" << endl
-			<< "4. Salir" << endl
+			<< "4. Ver cuentas existentes " <<endl
+			<< "5 . Salir" << endl
 			<< "---------------------" << endl;
 		cin >> resp;
 
@@ -38,12 +39,11 @@ int main() {
 
 			//guardar el nuevo cliente en el archivo
 			c.guardarArchivo(struct_cuentas);
-			hayCuenta = true;
 			cout << "Cliente/cuenta agregado exitosamente. " << endl;
 			
 		}
 
-		if (resp == 2 && hayCuenta) {
+		if (resp == 2) {
 			cout << "--Depositos y Retiros -- " << endl
 				<< "1. Depositos" << endl
 				<< "2. Retiros" << endl
@@ -53,8 +53,6 @@ int main() {
 			cin >> resp2;
 
 			if (resp2 != 3) {
-				c.imprimirArchivo();
-
 				cout << "Ingrese id: " << endl;
 				cin >> id1;
 				strcpy_s(struct_t.no_cuenta, id1);
@@ -75,7 +73,11 @@ int main() {
 			h.imprimirHistorial();
 		}
 
-	} while (resp != 4);
+		if (resp == 4) {
+			c.imprimirArchivo();
+		}
+
+	} while (resp != 5);
 
 
 

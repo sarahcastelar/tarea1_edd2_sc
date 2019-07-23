@@ -20,7 +20,7 @@ class cuenta
 {
 public:
 	void guardarArchivo(cuentas struct_cuentas) {
-		ofstream fileC("archivoCuentas.dat", ios::out | ios::app | ios::binary);
+		ofstream fileC("archivoCuentas4.dat", ios::out | ios::app | ios::binary);
 		if (!fileC) {
 			cout << "----------error de apertura en el archivo. " << endl;
 			return;
@@ -34,7 +34,8 @@ public:
 	}
 
 	void imprimirArchivo() {
-		ifstream fileC("archivosCuentas.dat", ios::in | ios::binary);
+		cout << "** imprimiendo cuentas ** " << endl;
+		ifstream fileC("archivoCuentas4.dat", ios::in | ios::binary);
 		if (!fileC)
 		{
 			cout << "Error de aprtura en el archivo!" << endl;
@@ -54,6 +55,7 @@ public:
 
 		}
 		fileC.close();
+		cout << "** fin imprimiendo cuentas ** " << endl;
 	}
 
 	
