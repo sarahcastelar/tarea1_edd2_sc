@@ -123,11 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cliente.cpp" />
     <ClCompile Include="cuenta.cpp" />
     <ClCompile Include="historial.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cliente.h" />
     <ClInclude Include="cuenta.h" />
     <ClInclude Include="historial.h" />
   </ItemGroup>
