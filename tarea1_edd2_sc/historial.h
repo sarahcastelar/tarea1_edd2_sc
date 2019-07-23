@@ -4,14 +4,14 @@ using namespace std;
 
 class historial
 {
-	char id[5];
-	int cod;
-	float tamano;
+	char no_cuenta[5];
+	int tipo;
+	float monto;
 
 	historial() {
-		strcpy_s(this->id, "-1");
-		cod = -1;
-		tamano = -1;
+		strcpy_s(this->no_cuenta, "-1");
+		tipo = -1;
+		monto = -1;
 	}
 
 };

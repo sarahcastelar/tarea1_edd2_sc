@@ -11,7 +11,7 @@ int main() {
 	//cout << struct_cuentas.nombre;
 	int resp = -1;
 	char id1[5];
-	char nombre1[5];
+	char nombre1[9];
 	bool hayCuenta = false;
 	cuenta c;
 
@@ -20,8 +20,8 @@ int main() {
 		
 		cout << "Bienvenido al Banco" << endl
 			<< "1. Agregar cliente" << endl
-			<< "2. Depositar dinero" << endl
-			<< "3. Retirar dinero" << endl
+			<< "2. Depositos/Retiros" << endl
+			<< "3. Ver historial de transacciones" << endl 
 			<< "4. Salir" << endl;
 		cin >> resp;
 
@@ -37,10 +37,13 @@ int main() {
 			c.guardarArchivo(struct_cuentas);
 			hayCuenta = true;
 			cout << "Cliente/cuenta agregado exitosamente. " << endl;
+			
 		}
 
 		if (resp == 2 && hayCuenta) {
-
+			cout << "--- imprimiendo archivo: " << endl;
+			c.imprimirArchivo();
+			cout << "fin" << endl;
 		}
 
 		if (resp == 3 && hayCuenta) {
