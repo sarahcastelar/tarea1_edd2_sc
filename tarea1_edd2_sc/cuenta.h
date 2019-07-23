@@ -20,7 +20,7 @@ class cuenta
 {
 public:
 	void guardarArchivo(cuentas struct_cuentas) {
-		ofstream file("archivoCuentas.dat", ios::out | ios::app | ios::binary);
+		ofstream file("archivoCuentas1.dat", ios::out | ios::app | ios::binary);
 		if (!file) {
 			cout << "----------error de apertura en el archivo. " << endl;
 			return;
