@@ -7,22 +7,25 @@ using namespace std;
 int main() {
 
 	struct cuentas struct_cuentas;
-	//strcpy_s(struct_cuentas.nombre, "sara");
-	//cout << struct_cuentas.nombre;
-	int resp = -1;
-	char id1[5];
-	char nombre1[9];
+	struct transaccion struct_t;
 	bool hayCuenta = false;
+	int resp = -1;
 	cuenta c;
+	historial h;
 
 	//pedir los datos
 	do {
+		char id1[5];
+		char nombre1[9];
+		float monto = -1;
 		
-		cout << "Bienvenido al Banco" << endl
+		cout << "---------------------" << endl
+			<< "Bienvenido al Banco" << endl
 			<< "1. Agregar cliente" << endl
 			<< "2. Depositos/Retiros" << endl
-			<< "3. Ver historial de transacciones" << endl 
-			<< "4. Salir" << endl;
+			<< "3. Ver historial de transacciones" << endl
+			<< "4. Salir" << endl
+			<< "---------------------" << endl;
 		cin >> resp;
 
 		if (resp == 1) {
@@ -41,13 +44,35 @@ int main() {
 		}
 
 		if (resp == 2 && hayCuenta) {
-			cout << "--- imprimiendo archivo: " << endl;
-			c.imprimirArchivo();
-			cout << "fin" << endl;
+			cout << "--Depositos y Retiros -- " << endl
+				<< "1. Depositos" << endl
+				<< "2. Retiros" << endl
+				<< "3. atras " << endl
+				<< "Ingrese su opcion: " << endl;
+			int resp2 = -1;
+			cin >> resp2;
+
+			if (resp2 != 3) {
+				c.imprimirArchivo();
+
+				cout << "Ingrese id: " << endl;
+				cin >> id1;
+				strcpy_s(struct_t.no_cuenta, id1);
+				cout << "Ingrese monto: " << endl;
+				cin >> struct_t.monto;
+			
+				if (resp2 == 1)
+					struct_t.tipo = 1;
+				else 
+					struct_t.tipo = 2;
+
+				h.hacerTransaccion(struct_t);
+				cout << "Deposito hecho exitosamente. " << endl;
+			}
 		}
 
-		if (resp == 3 && hayCuenta) {
-
+		if (resp == 3) {
+			h.imprimirHistorial();
 		}
 
 	} while (resp != 4);

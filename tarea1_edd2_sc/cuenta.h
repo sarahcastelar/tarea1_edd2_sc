@@ -20,41 +20,43 @@ class cuenta
 {
 public:
 	void guardarArchivo(cuentas struct_cuentas) {
-		ofstream file("archivoCuentas1.dat", ios::out | ios::app | ios::binary);
-		if (!file) {
+		ofstream fileC("archivoCuentas.dat", ios::out | ios::app | ios::binary);
+		if (!fileC) {
 			cout << "----------error de apertura en el archivo. " << endl;
 			return;
 		}
 		else {
-			file.seekp(0, ios::end);
-			file.write(reinterpret_cast<const char*>(&struct_cuentas), sizeof(cuentas));
+			fileC.seekp(0, ios::end);
+			fileC.write(reinterpret_cast<const char*>(&struct_cuentas), sizeof(cuentas));
 			cout << "done" << endl;
-			file.close();
+			fileC.close();
 		}
 	}
 
 	void imprimirArchivo() {
-		ifstream file("archivosCuentas.dat", ios::in | ios::binary);
-		if (!file)
+		ifstream fileC("archivosCuentas.dat", ios::in | ios::binary);
+		if (!fileC)
 		{
 			cout << "Error de aprtura en el archivo!" << endl;
 			return;
 		}
 
-		file.seekg(0, ios::beg);
+		fileC.seekg(0, ios::beg);
 		cuentas struct_cuentas;
-		file.read(reinterpret_cast<char*>(&struct_cuentas), sizeof(struct_cuentas));
+		fileC.read(reinterpret_cast<char *>(&struct_cuentas), sizeof(struct_cuentas));
 
-		while (!file.eof()) {
+		while (!fileC.eof()) {
 			cout << "ID: " << struct_cuentas.id
 				<< " Nombre: " << struct_cuentas.nombre << " " 
 				<< "Saldo: " << struct_cuentas.saldo << endl;
 
-			file.read(reinterpret_cast<char*>(&struct_cuentas), sizeof(struct_cuentas));
+			fileC.read(reinterpret_cast<char *>(&struct_cuentas), sizeof(struct_cuentas));
 
 		}
-		file.close();
+		fileC.close();
 	}
+
+	
 
 };
 
